@@ -1,7 +1,5 @@
 # Guide de réalisation
 
-Les résultats présents dans ce portfolio sont des **exemples de laboratoire simulés**. Ils ne doivent pas être présentés comme une expérience professionnelle réelle. Le but est de montrer une méthode, puis de remplacer progressivement les exemples par tes propres résultats.
-
 ## Projet SOC Sentinel
 
 ### Exemple de scénario
