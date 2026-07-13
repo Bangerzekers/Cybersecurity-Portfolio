@@ -4,7 +4,7 @@
 
 - **Notes de méthodologie**, où je détaille comment j'aborderais un scénario de sécurité donné (investigation SOC, audit IAM, gestion des vulnérabilités) — utile pour illustrer les compétences acquises durant mon master, même sans lab dédié réalisé pour l'occasion.
 
-> Je recherche actuellement un poste 100% cybersécurité en Suisse, en m'appuyant sur mon master spécialisé et mon expérience réseau existante. Ce portfolio est complété progressivement avec des labs pratiques.
+> Je recherche actuellement un poste cybersécurité, en m'appuyant sur mon master spécialisé et mon expérience réseau existante. Ce portfolio est complété progressivement avec des labs pratiques.
 
 ## Projets réels
 
