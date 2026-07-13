@@ -16,7 +16,7 @@ Ce portfolio présente des projets pratiques autour de trois axes :
 
 Création d’un scénario d’incident, collecte de journaux Windows, détection de connexions suspectes, investigation à l’aide de requêtes KQL et rédaction d’un rapport d’incident.
 
-[Consulter le projet](projects/soc-sentinel/README.md)
+[Consulter le projet](Bangerzekers/Cybersecurity-Portfolio/blob/main/soc-sentinel/README.md)
 
 **Compétences démontrées :** Microsoft Sentinel, KQL, Windows Event Logs, triage, investigation, chronologie d’incident, recommandations.
 
@@ -24,7 +24,7 @@ Création d’un scénario d’incident, collecte de journaux Windows, détectio
 
 Audit d’un tenant de laboratoire portant sur les comptes privilégiés, l’authentification multifacteur, les accès conditionnels, les comptes inactifs et le principe du moindre privilège.
 
-[Consulter le projet](projects/entra-id-security-audit/README.md)
+[Consulter le projet](Bangerzekers/Cybersecurity-Portfolio/blob/main/entra-id-security-audit/README.md)
 
 **Compétences démontrées :** IAM, Entra ID, MFA, Conditional Access, RBAC, gouvernance des identités, PowerShell.
 
@@ -32,7 +32,7 @@ Audit d’un tenant de laboratoire portant sur les comptes privilégiés, l’au
 
 Analyse d’une machine de laboratoire volontairement vulnérable, qualification du risque, priorisation des corrections, remédiation et contrôle après correction.
 
-[Consulter le projet](projects/vulnerability-management/README.md)
+[Consulter le projet](Bangerzekers/Cybersecurity-Portfolio/blob/main/vulnerability-managment/README.md)
 
 **Compétences démontrées :** vulnérabilités, CVSS, priorisation, remédiation, validation, reporting.
 
