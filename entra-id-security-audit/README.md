@@ -1,5 +1,7 @@
 # Audit de sécurité Microsoft Entra ID
 
+> **Projet de laboratoire simulé :** les constats ci-dessous sont des exemples.
+
 ## 1. Résumé
 
 Ce projet présente une méthode d’audit de sécurité d’un environnement Microsoft Entra ID de laboratoire.
@@ -82,9 +84,9 @@ Get-MgDirectoryRole -All |
 
 | Constat | Risque | Recommandation | Priorité |
 |---|---|---|---|
-| À compléter | | | |
-| À compléter | | | |
-| À compléter | | | |
+| Deux comptes administrateurs sans MFA | Compromission privilégiée | Imposer le MFA | Critique |
+| Cinq Global Administrators | Privilèges excessifs | Réduire leur nombre | Haute |
+| Trois comptes inactifs depuis 90 jours | Réutilisation frauduleuse | Désactiver après validation | Haute |
 
 ## 7. Plan de remédiation
 
