@@ -2,7 +2,7 @@
 
 ## Comptes et authentification
 
-- [ ] MFA activé pour les administrateurs
+- [x] MFA activé pour les administrateurs
 - [ ] MFA activé pour les utilisateurs
 - [ ] Authentification héritée bloquée
 - [ ] Comptes inactifs identifiés
