@@ -1,0 +1,28 @@
+# Secrets
+.env
+*.env
+secrets/
+credentials/
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Logs and exports
+*.log
+*.evtx
+*.csv
+*.json
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
