@@ -1,115 +1,59 @@
-# Audit de sécurité Microsoft Entra ID
+# Méthodologie d'audit de sécurité Microsoft Entra ID
 
-> **Projet de laboratoire simulé :** les constats ci-dessous sont des exemples.
+> **Note de méthodologie :** ce document décrit la démarche que je suivrais pour auditer un tenant Microsoft Entra ID. Ce n'est pas le compte-rendu d'un audit réellement mené.
 
-## 1. Résumé
+## 1. Objectifs de l'audit
 
-Ce projet présente une méthode d’audit de sécurité d’un environnement Microsoft Entra ID de laboratoire.
+- Réduire le risque de compromission des comptes
+- Identifier les privilèges excessifs
+- Vérifier la couverture MFA
+- Repérer les comptes dormants
+- Proposer un plan de remédiation priorisé
 
-L’audit porte sur :
+## 2. Périmètre
 
-- les comptes à privilèges ;
-- l’authentification multifacteur ;
-- les accès conditionnels ;
-- les comptes inactifs ;
-- les applications et consentements ;
-- le principe du moindre privilège.
+Utilisateurs, groupes, rôles Entra ID, méthodes d'authentification, Conditional Access, applications d'entreprise, comptes invités.
 
-## 2. Objectifs
+## 3. Grille de contrôles
 
-- Réduire le risque de compromission des comptes.
-- Identifier les privilèges excessifs.
-- Vérifier la couverture MFA.
-- Repérer les comptes dormants.
-- Proposer un plan de remédiation priorisé.
-
-## 3. Périmètre
-
-- Utilisateurs
-- Groupes
-- Rôles Entra ID
-- Méthodes d’authentification
-- Conditional Access
-- Applications d’entreprise
-- Comptes invités
-
-## 4. Contrôles
-
-| Contrôle | Risque | Priorité |
+| Contrôle | Risque associé | Priorité |
 |---|---|---|
 | Comptes administrateurs sans MFA | Compromission privilégiée | Critique |
-| Trop de Global Administrators | Élévation d’impact | Haute |
-| Comptes inactifs actifs | Utilisation frauduleuse | Haute |
-| Invités anciens | Accès persistant | Moyenne |
-| Absence de comptes d’urgence | Blocage administratif | Haute |
+| Trop de Global Administrators | Élévation d'impact en cas de compromission | Haute |
+| Comptes inactifs toujours actifs | Utilisation frauduleuse | Haute |
+| Comptes invités anciens/non revus | Accès persistant non maîtrisé | Moyenne |
+| Absence de comptes d'urgence (break-glass) | Blocage administratif total | Haute |
 | Accès conditionnel incomplet | Contournement des protections | Haute |
 
-## 5. Exemples PowerShell
+## 4. Démarche
 
-> Adapter les commandes au module Microsoft Graph installé et aux autorisations disponibles.
+1. **Inventaire des rôles à privilèges** : lister les Global Admins et rôles sensibles, vérifier que chacun est justifié et couvert par MFA.
+2. **Couverture MFA globale** : identifier les comptes (surtout à privilèges) sans MFA activé.
+3. **Comptes inactifs** : croiser la dernière date de connexion avec le statut du compte (départ, mutation).
+4. **Revue des invités** : accès encore nécessaires ou à révoquer.
+5. **Conditional Access** : vérifier l'existence de politiques couvrant au minimum les comptes à privilèges et les connexions à risque.
+6. **Priorisation** : classer les constats par risque réel (probabilité × impact), pas seulement par facilité de correction.
 
-### Connexion à Microsoft Graph
-
-```powershell
-Connect-MgGraph -Scopes `
-    "User.Read.All", `
-    "Directory.Read.All", `
-    "RoleManagement.Read.Directory", `
-    "AuditLog.Read.All"
-```
-
-### Lister les utilisateurs
+## 5. Exemple de commande PowerShell / Microsoft Graph
 
 ```powershell
-Get-MgUser -All |
-    Select-Object DisplayName, UserPrincipalName, AccountEnabled, UserType
+Connect-MgGraph -Scopes "User.Read.All","AuditLog.Read.All"
+
+Get-MgUser -All | Where-Object {
+    $_.SignInActivity.LastSignInDateTime -lt (Get-Date).AddDays(-90)
+} | Select-Object DisplayName, UserPrincipalName, @{N='DernièreConnexion';E={$_.SignInActivity.LastSignInDateTime}}
 ```
 
-### Rechercher les comptes désactivés
+Cette commande permet d'identifier les comptes sans connexion depuis plus de 90 jours — un point de départ classique pour repérer des comptes dormants à désactiver.
 
-```powershell
-Get-MgUser -All -Property DisplayName,UserPrincipalName,AccountEnabled |
-    Where-Object { $_.AccountEnabled -eq $false } |
-    Select-Object DisplayName, UserPrincipalName
-```
+## 6. Plan de remédiation type
 
-### Lister les rôles
+1. Activer le MFA obligatoire pour tous les rôles à privilèges (immédiat)
+2. Désactiver les comptes inactifs identifiés (court terme)
+3. Réduire le nombre de Global Administrators au strict nécessaire (court terme)
+4. Mettre en place des comptes d'urgence break-glass exclus des politiques Conditional Access (court terme)
+5. Revue trimestrielle des accès invités (processus récurrent)
 
-```powershell
-Get-MgDirectoryRole -All |
-    Select-Object DisplayName, Id
-```
+## Compétences illustrées
 
-## 6. Résultats
-
-| Constat | Risque | Recommandation | Priorité |
-|---|---|---|---|
-| Deux comptes administrateurs sans MFA | Compromission privilégiée | Imposer le MFA | Critique |
-| Cinq Global Administrators | Privilèges excessifs | Réduire leur nombre | Haute |
-| Trois comptes inactifs depuis 90 jours | Réutilisation frauduleuse | Désactiver après validation | Haute |
-
-## 7. Plan de remédiation
-
-### Priorité critique
-
-- Imposer le MFA aux comptes privilégiés.
-- Réduire le nombre de Global Administrators.
-- Révoquer les accès manifestement non légitimes.
-
-### Priorité haute
-
-- Désactiver les comptes inactifs.
-- Réviser les comptes invités.
-- Mettre en place des accès conditionnels adaptés.
-- Séparer les comptes administratifs des comptes bureautiques.
-
-### Priorité moyenne
-
-- Mettre en place une revue périodique.
-- Documenter les exceptions.
-- Vérifier les consentements applicatifs.
-- Améliorer les alertes sur les changements de privilèges.
-
-## 8. Conclusion
-
-Résumer le niveau de maturité, les risques principaux et les actions à réaliser dans les trente prochains jours.
+IAM, Microsoft Entra ID, MFA, Conditional Access, RBAC, gouvernance des identités, PowerShell/Microsoft Graph.
