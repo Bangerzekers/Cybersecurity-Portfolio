@@ -2,9 +2,6 @@
 
 **Master (Bac+5, RNCP Niveau 7) — Expert en architecture réseaux, spécialité cybersécurité**, avec une expérience concrète en administration réseau (infrastructure HPE Aruba en environnement de santé), support N2, environnements Microsoft (365, Exchange Online, SharePoint, Power Automate) et fondamentaux réseau (TCP/IP, VLAN, segmentation, pare-feu).
 
-Ce portfolio présente deux types de contenu, clairement distingués :
-
-- **Projets réels**, issus de mon activité professionnelle (anonymisés) ;
 - **Notes de méthodologie**, où je détaille comment j'aborderais un scénario de sécurité donné (investigation SOC, audit IAM, gestion des vulnérabilités) — utile pour illustrer les compétences acquises durant mon master, même sans lab dédié réalisé pour l'occasion.
 
 > Je recherche actuellement un poste 100% cybersécurité en Suisse, en m'appuyant sur mon master spécialisé et mon expérience réseau existante. Ce portfolio est complété progressivement avec des labs pratiques.
