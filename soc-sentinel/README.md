@@ -1,52 +1,40 @@
-# Investigation SOC avec Microsoft Sentinel
+# Méthodologie d'investigation SOC avec Microsoft Sentinel
 
-> **Projet de laboratoire simulé :** les résultats ci-dessous sont des exemples à remplacer par tes propres résultats.
+> **Note de méthodologie :** ce document ne relate pas un incident réel. Il décrit la démarche technique que je suivrais face au scénario ci-dessous, pour illustrer mon raisonnement et mes connaissances en investigation SOC.
 
-## 1. Résumé
+## 1. Scénario de référence
 
-Ce projet simule une investigation SOC sur plusieurs tentatives de connexion échouées suivies d’une connexion réussie depuis une source inhabituelle.
+Un compte utilisateur fait l'objet de nombreuses tentatives de connexion échouées, suivies d'une authentification réussie depuis une adresse IP inhabituelle.
 
-L’objectif est de montrer une démarche complète :
+Hypothèses à écarter ou confirmer, dans l'ordre :
+1. Erreur utilisateur / mot de passe oublié
+2. Attaque par force brute ciblée
+3. Password spraying (plusieurs comptes, peu de tentatives chacun)
+4. Compromission effective du compte
 
-1. collecte des événements ;
-2. création d’une détection ;
-3. triage de l’alerte ;
-4. investigation ;
-5. qualification ;
-6. recommandations.
-
-## 2. Environnement
+## 2. Environnement type
 
 - Microsoft Sentinel ou Log Analytics Workspace
-- Machine Windows 10/11 de laboratoire
-- Windows Event Logs
+- Windows Event Logs (postes + contrôleurs de domaine)
 - Microsoft Defender, si disponible
-- Requêtes KQL
 
-## 3. Scénario
-
-Un compte utilisateur fait l’objet de nombreuses tentatives de connexion échouées. Une authentification réussie est ensuite observée depuis une adresse IP inhabituelle.
-
-Hypothèses étudiées :
-
-- erreur utilisateur ;
-- mot de passe oublié ;
-- attaque par force brute ;
-- password spraying ;
-- compromission de compte.
-
-## 4. Événements utiles
+## 3. Événements Windows pertinents
 
 | Event ID | Description |
 |---|---|
 | 4624 | Connexion réussie |
 | 4625 | Échec de connexion |
 | 4672 | Privilèges spéciaux attribués |
-| 4688 | Création d’un processus |
+| 4688 | Création d'un processus |
 
-## 5. Requêtes KQL
+## 4. Démarche de triage
 
-### Échecs de connexion
+1. **Quantifier** : combien d'échecs, sur quelle fenêtre de temps, depuis combien d'IP/sources différentes.
+2. **Corréler** : la connexion réussie provient-elle d'une IP jamais vue pour ce compte ? Géolocalisation cohérente avec l'utilisateur ?
+3. **Contextualiser** : le compte a-t-il des privilèges élevés ? Y a-t-il eu une action sensible après la connexion (4672, 4688, accès à des ressources critiques) ?
+4. **Qualifier** : faux positif, incident mineur, ou compromission avérée nécessitant escalade.
+
+## 5. Exemple de requête KQL (échecs de connexion groupés)
 
 ```kusto
 SecurityEvent
@@ -56,80 +44,16 @@ SecurityEvent
 | order by FailedAttempts desc
 ```
 
-### Succès après plusieurs échecs
+Cette requête permet d'identifier rapidement les comptes et IP concentrant un nombre anormal d'échecs sur une fenêtre glissante de 10 minutes — un indicateur classique de brute force ou de password spraying.
 
-```kusto
-let FailedLogons =
-    SecurityEvent
-    | where EventID == 4625
-    | summarize FailedAttempts=count() by Account, IpAddress, bin(TimeGenerated, 15m)
-    | where FailedAttempts >= 5;
-let SuccessfulLogons =
-    SecurityEvent
-    | where EventID == 4624
-    | project SuccessTime=TimeGenerated, Account, IpAddress, Computer;
-FailedLogons
-| join kind=inner SuccessfulLogons on Account, IpAddress
-| where SuccessTime between (TimeGenerated .. TimeGenerated + 15m)
-| project Account, IpAddress, FailedAttempts, SuccessTime, Computer
-```
+## 6. Recommandations types en cas de confirmation
 
-### Activité PowerShell
+- Réinitialisation immédiate du mot de passe du compte concerné
+- Révocation des sessions actives
+- Vérification MFA (activation si absente)
+- Blocage de l'IP source au niveau du pare-feu/Conditional Access
+- Revue des accès et actions effectuées pendant la fenêtre de compromission suspectée
 
-```kusto
-SecurityEvent
-| where EventID == 4688
-| where NewProcessName endswith @"\powershell.exe"
-    or NewProcessName endswith @"\pwsh.exe"
-| project TimeGenerated, Account, Computer, NewProcessName, CommandLine
-| order by TimeGenerated desc
-```
+## Compétences illustrées
 
-## 6. Méthode d’investigation
-
-- Identifier le compte concerné.
-- Vérifier le nombre et la fréquence des échecs.
-- Examiner l’adresse IP source.
-- Rechercher une connexion réussie après les échecs.
-- Vérifier les processus lancés après la connexion.
-- Contrôler les changements de privilèges.
-- Rechercher des événements similaires sur d’autres comptes.
-- Déterminer s’il s’agit d’un incident réel ou d’un faux positif.
-
-## 7. Chronologie
-
-| Heure | Événement | Interprétation |
-|---|---|---|
-| 09:12 | 18 événements 4625 | Tentatives répétées |
-| 09:14 | Événement 4624 | Connexion réussie |
-| 09:16 | Processus PowerShell | Activité post-authentification à qualifier |
-| 09:20 | Compte désactivé | Mesure de confinement |
-
-## 8. Conclusion
-
-**Classification :** vrai positif simulé  
-**Sévérité :** moyenne  
-**Compte compromis :** probable dans le scénario simulé  
-**Impact :** faible, environnement de laboratoire isolé
-
-## 9. Recommandations
-
-- Réinitialiser le mot de passe du compte si la compromission est confirmée.
-- Révoquer les sessions actives.
-- Activer ou renforcer l’authentification multifacteur.
-- Vérifier les règles d’accès conditionnel.
-- Bloquer temporairement la source si cela est justifié.
-- Rechercher la même adresse IP dans les autres journaux.
-- Mettre en place une détection des succès après plusieurs échecs.
-- Documenter les faux positifs connus.
-
-## 10. Preuves à ajouter
-
-Placer ici des captures anonymisées :
-
-- vue de l’incident Sentinel ;
-- résultat des requêtes KQL ;
-- chronologie ;
-- entités liées ;
-- règle analytique ;
-- résultat après remédiation.
+Microsoft Sentinel, KQL, lecture de logs Windows, raisonnement de triage SOC, priorisation d'incident.
