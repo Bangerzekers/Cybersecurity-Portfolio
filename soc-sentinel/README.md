@@ -1,5 +1,7 @@
 # Investigation SOC avec Microsoft Sentinel
 
+> **Projet de laboratoire simulé :** les résultats ci-dessous sont des exemples à remplacer par tes propres résultats.
+
 ## 1. Résumé
 
 Ce projet simule une investigation SOC sur plusieurs tentatives de connexion échouées suivies d’une connexion réussie depuis une source inhabituelle.
@@ -98,17 +100,17 @@ SecurityEvent
 
 | Heure | Événement | Interprétation |
 |---|---|---|
-| À compléter | Plusieurs événements 4625 | Tentatives répétées |
-| À compléter | Événement 4624 | Connexion réussie |
-| À compléter | Processus inhabituel | Activité à qualifier |
-| À compléter | Mesure de confinement | Compte sécurisé |
+| 09:12 | 18 événements 4625 | Tentatives répétées |
+| 09:14 | Événement 4624 | Connexion réussie |
+| 09:16 | Processus PowerShell | Activité post-authentification à qualifier |
+| 09:20 | Compte désactivé | Mesure de confinement |
 
 ## 8. Conclusion
 
-**Classification :** à compléter  
-**Sévérité :** à compléter  
-**Compte compromis :** oui / non / indéterminé  
-**Impact :** à compléter
+**Classification :** vrai positif simulé  
+**Sévérité :** moyenne  
+**Compte compromis :** probable dans le scénario simulé  
+**Impact :** faible, environnement de laboratoire isolé
 
 ## 9. Recommandations
 
