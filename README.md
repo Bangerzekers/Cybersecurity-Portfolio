@@ -16,7 +16,7 @@ Ce portfolio présente des projets pratiques autour de trois axes :
 
 Création d’un scénario d’incident, collecte de journaux Windows, détection de connexions suspectes, investigation à l’aide de requêtes KQL et rédaction d’un rapport d’incident.
 
-[Consulter le projet](Bangerzekers/Cybersecurity-Portfolio/blob/main/soc-sentinel/README.md)
+[Consulter le projet](/Bangerzekers/Cybersecurity-Portfolio/blob/main/soc-sentinel/README.md)
 
 **Compétences démontrées :** Microsoft Sentinel, KQL, Windows Event Logs, triage, investigation, chronologie d’incident, recommandations.
 
@@ -24,7 +24,7 @@ Création d’un scénario d’incident, collecte de journaux Windows, détectio
 
 Audit d’un tenant de laboratoire portant sur les comptes privilégiés, l’authentification multifacteur, les accès conditionnels, les comptes inactifs et le principe du moindre privilège.
 
-[Consulter le projet](Bangerzekers/Cybersecurity-Portfolio/blob/main/entra-id-security-audit/README.md)
+[Consulter le projet](/Bangerzekers/Cybersecurity-Portfolio/blob/main/entra-id-security-audit/README.md)
 
 **Compétences démontrées :** IAM, Entra ID, MFA, Conditional Access, RBAC, gouvernance des identités, PowerShell.
 
@@ -32,7 +32,7 @@ Audit d’un tenant de laboratoire portant sur les comptes privilégiés, l’au
 
 Analyse d’une machine de laboratoire volontairement vulnérable, qualification du risque, priorisation des corrections, remédiation et contrôle après correction.
 
-[Consulter le projet](Bangerzekers/Cybersecurity-Portfolio/blob/main/vulnerability-managment/README.md)
+[Consulter le projet](/Bangerzekers/Cybersecurity-Portfolio/blob/main/vulnerability-managment/README.md)
 
 **Compétences démontrées :** vulnérabilités, CVSS, priorisation, remédiation, validation, reporting.
 
@@ -46,10 +46,5 @@ Analyse d’une machine de laboratoire volontairement vulnérable, qualification
 
 ## Objectif professionnel
 
-Intégrer en Suisse une équipe de cybersécurité, SOC, IAM ou sécurité Microsoft, dans un poste permettant de mettre à profit mon expérience IT tout en développant mes compétences en sécurité opérationnelle.
+Intégrer une équipe de cybersécurité, SOC, IAM ou sécurité Microsoft, dans un poste permettant de mettre à profit mon expérience IT tout en développant mes compétences en sécurité opérationnelle.
 
-## Contact
-
-- LinkedIn : à compléter
-- E-mail professionnel : à compléter
-- Localisation : région de Pontarlier, mobilité Suisse romande
