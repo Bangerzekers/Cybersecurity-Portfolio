@@ -32,7 +32,7 @@ Audit d’un tenant de laboratoire portant sur les comptes privilégiés, l’au
 
 Analyse d’une machine de laboratoire volontairement vulnérable, qualification du risque, priorisation des corrections, remédiation et contrôle après correction.
 
-[Consulter le projet](vulnerability-managment/README.md)
+[Consulter le projet](vulnerability-management/README.md)
 
 **Compétences démontrées :** vulnérabilités, CVSS, priorisation, remédiation, validation, reporting.
 
