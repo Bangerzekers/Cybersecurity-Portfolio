@@ -1,13 +1,13 @@
 # Portfolio Cybersécurité — Paul Jacquet
 
-Professionnel IT orienté **cybersécurité opérationnelle**, avec une expérience concrète en administration réseau (infrastructure HPE Aruba en environnement de santé), support N2, environnements Microsoft (365, Exchange Online, SharePoint, Power Automate) et fondamentaux réseau (TCP/IP, VLAN, segmentation, pare-feu).
+**Master (Bac+5, RNCP Niveau 7) — Expert en architecture réseaux, spécialité cybersécurité**, avec une expérience concrète en administration réseau (infrastructure HPE Aruba en environnement de santé), support N2, environnements Microsoft (365, Exchange Online, SharePoint, Power Automate) et fondamentaux réseau (TCP/IP, VLAN, segmentation, pare-feu).
 
 Ce portfolio présente deux types de contenu, clairement distingués :
 
 - **Projets réels**, issus de mon activité professionnelle (anonymisés) ;
-- **Notes de méthodologie**, où je détaille comment j'aborderais un scénario de sécurité donné (investigation SOC, audit IAM, gestion des vulnérabilités) — utile pour montrer ma logique et mes connaissances techniques, même sans lab dédié réalisé pour l'occasion.
+- **Notes de méthodologie**, où je détaille comment j'aborderais un scénario de sécurité donné (investigation SOC, audit IAM, gestion des vulnérabilités) — utile pour illustrer les compétences acquises durant mon master, même sans lab dédié réalisé pour l'occasion.
 
-> Je suis actuellement en transition vers un poste 100% cybersécurité et je complète activement ce portfolio avec des labs pratiques. Les projets ci-dessous seront enrichis au fur et à mesure.
+> Je recherche actuellement un poste 100% cybersécurité en Suisse, en m'appuyant sur mon master spécialisé et mon expérience réseau existante. Ce portfolio est complété progressivement avec des labs pratiques.
 
 ## Projets réels
 
@@ -50,6 +50,10 @@ Démarche de scan, qualification, priorisation et remédiation sur un système t
 - **Systèmes :** Windows, Active Directory, postes de travail, support N2
 - **Documentation :** procédures, rapports techniques, recommandations
 
+## Formation
+
+**Master (Bac+5, RNCP Niveau 7) — Expert en architecture réseaux, spécialité cybersécurité**
+
 ## Objectif professionnel
 
-Intégrer une équipe de cybersécurité, SOC, IAM ou sécurité réseau en Suisse, en m'appuyant sur mon expérience IT et réseau existante tout en développant mes compétences en sécurité opérationnelle.
+Intégrer une équipe de cybersécurité, SOC, IAM ou sécurité réseau en Suisse, en m'appuyant sur mon master spécialisé et mon expérience réseau existante.
