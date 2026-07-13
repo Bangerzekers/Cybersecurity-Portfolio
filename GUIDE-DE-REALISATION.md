@@ -2,7 +2,7 @@
 
 ## Projet SOC Sentinel
 
-### Exemple de scénario
+### Scénario
 - Compte fictif : `paul.lab`
 - Poste : `WIN11-LAB01`
 - Adresse IP privée : `192.168.56.20`
