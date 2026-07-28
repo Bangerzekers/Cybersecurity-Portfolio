@@ -1,14 +1,25 @@
 # Portfolio Cybersécurité — Paul Jacquet
 
-**Master (Bac+5, RNCP Niveau 7) — Expert en architecture réseaux, spécialité cybersécurité**, avec une expérience concrète en administration réseau (infrastructure HPE Aruba en environnement de santé), support N2, environnements Microsoft (365, Exchange Online, SharePoint, Power Automate) et fondamentaux réseau (TCP/IP, VLAN, segmentation, pare-feu).
+**Master (Bac+5, RNCP Niveau 7) — Expert en architectures systèmes, réseaux et sécurité informatique (EASRSI)**, avec une expérience opérationnelle en environnement hospitalier : durcissement Active Directory, gestion des vulnérabilités, supervision d'infrastructure, ainsi qu'une expertise réseau plus large (infrastructure HPE Aruba, VLAN, segmentation) et environnements Microsoft (365, Exchange Online, SharePoint, Power Automate).
 
+Ce portfolio présente deux types de contenu, clairement distingués :
+
+- **Projets réels**, issus de mon activité professionnelle (anonymisés) ;
 - **Notes de méthodologie**, où je détaille comment j'aborderais un scénario de sécurité donné (investigation SOC, audit IAM, gestion des vulnérabilités) — utile pour illustrer les compétences acquises durant mon master, même sans lab dédié réalisé pour l'occasion.
 
-> Je recherche actuellement un poste cybersécurité, en m'appuyant sur mon master spécialisé et mon expérience réseau existante. Ce portfolio est complété progressivement avec des labs pratiques.
+> Je recherche actuellement un poste 100% cybersécurité (SOC, sécurité réseau) en Suisse, en m'appuyant sur mon master spécialisé et mon expérience opérationnelle en sécurité réseau. Ce portfolio est complété progressivement avec des labs pratiques.
 
 ## Projets réels
 
-### 1. Sauvegarde automatisée de configurations réseau — Ansible / HPE Aruba
+### 1. Supervision d'infrastructure — Zabbix & Grafana
+
+Supervision de l'infrastructure (serveurs Linux/Windows, équipements réseau, sauvegardes) en environnement hospitalier multi-sites : collecte de métriques via Zabbix, visualisation via Grafana, définition de seuils d'alerte, qualification et traitement des incidents.
+
+[Consulter le projet](network-monitoring-zabbix-grafana/README.md)
+
+**Compétences démontrées :** Zabbix, Grafana, supervision d'infrastructure, SNMP, qualification d'incidents, priorisation par criticité métier.
+
+### 2. Sauvegarde automatisée de configurations réseau — Ansible / HPE Aruba
 
 Automatisation via Ansible du backup de configuration pour un parc de switches HPE Aruba (OS-Switch/ProCurve 2530, 2920, et CX) sur un réseau de management dédié (VLAN), avec inventaire structuré par site, playbooks différenciés selon les modèles, gestion des secrets via Ansible Vault et planification via cron.
 
