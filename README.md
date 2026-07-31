@@ -31,19 +31,19 @@ Automatisation via Ansible du backup de configuration pour un parc de switches H
 
 Ces documents ne décrivent pas un incident réel, mais ma démarche technique face à un scénario donné : requêtes, outils, raisonnement, priorisation. L'objectif est de montrer comment je pense et travaille, en toute transparence sur le fait qu'il s'agit d'un exercice et non d'un vécu.
 
-### 2. Méthodologie d'investigation SOC avec Microsoft Sentinel
+### 3. Méthodologie d'investigation SOC avec Microsoft Sentinel
 
 Démarche d'investigation face à un scénario de connexions suspectes : collecte de logs, requêtes KQL, triage, qualification, recommandations.
 
 [Consulter](soc-sentinel/README.md) — **Compétences :** Microsoft Sentinel, KQL, Windows Event Logs, triage, chronologie d'incident.
 
-### 3. Méthodologie d'audit de sécurité Microsoft Entra ID
+### 4. Méthodologie d'audit de sécurité Microsoft Entra ID
 
 Démarche d'audit d'un tenant : comptes à privilèges, MFA, accès conditionnels, comptes inactifs, principe du moindre privilège.
 
 [Consulter](entra-id-security-audit/README.md) — **Compétences :** IAM, Entra ID, MFA, Conditional Access, RBAC, PowerShell/Graph.
 
-### 4. Méthodologie de gestion des vulnérabilités
+### 5. Méthodologie de gestion des vulnérabilités
 
 Démarche de scan, qualification, priorisation et remédiation sur un système type.
 
