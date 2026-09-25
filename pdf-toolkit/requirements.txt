@@ -1,0 +1,5 @@
+pymupdf>=1.24.3   # rewrite_images, add_redact_annot images=, page_structure
+PySide6>=6.6
+pillow>=10.0
+fonttools>=4.40
+ocrmypdf>=16.0    # OCR — nécessite aussi Tesseract OCR installé sur le poste (voir README)
