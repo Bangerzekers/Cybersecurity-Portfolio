@@ -8,8 +8,6 @@ Ce portfolio présente deux types de contenu, clairement distingués :
 - **Projets réels**, issus de mon activité professionnelle ou personnelle (anonymisés le cas échéant) ;
 - **Notes de méthodologie**, où je détaille comment j'aborderais un scénario de sécurité donné (investigation SOC, audit IAM, gestion des vulnérabilités) afin d'illustrer ma démarche technique et les compétences acquises durant mon master.
 
-> Je recherche actuellement un poste 100% cybersécurité (SOC, sécurité réseau) en Suisse, en m'appuyant sur mon master spécialisé et mon expérience opérationnelle en sécurité réseau. Ce portfolio est complété progressivement avec des projets et labs pratiques.
-
 ## Projets réels
 
 ### 1. Supervision d'infrastructure — Zabbix & Grafana
@@ -44,11 +42,19 @@ Outil Python avec interface graphique permettant de protéger un PDF par mot de 
 
 **Compétences démontrées :** Python, Tkinter, chiffrement de documents, pikepdf, gestion sécurisée de données sensibles, confidentialité par conception, conception d'un outil utilisable par un public non technique.
 
+### 5. PDF Toolkit — boîte à outils PDF locale (édition, organisation, OCR, intégrité)
+
+Application de bureau complète regroupant une quinzaine d'opérations PDF (édition visuelle directe au clic, organisation des pages, OCR, caviardage réellement destructif) et surtout deux fonctions orientées sécurité : comparaison de deux PDF pour vérifier l'intégrité d'un document (hachage + diff visuel/textuel page par page), et réparation d'un fichier corrompu. Conçu comme l'équivalent local et hors-ligne d'une suite type iLovePDF/PDF24.
+
+[Consulter le projet](./pdf-toolkit/)
+
+**Compétences démontrées :** Python, PySide6, PyMuPDF, conception d'interface graphique interactive, manipulation bas niveau du format PDF (caviardage, redaction, formulaires), vérification d'intégrité documentaire, OCR, confidentialité par conception.
+
 ## Notes de méthodologie
 
 Ces documents ne décrivent pas un incident réel, mais ma démarche technique face à un scénario donné : requêtes, outils, raisonnement et priorisation. L'objectif est de montrer comment je pense et travaille, en toute transparence sur le fait qu'il s'agit d'exercices méthodologiques.
 
-### 5. Méthodologie d'investigation SOC avec Microsoft Sentinel
+### 6. Méthodologie d'investigation SOC avec Microsoft Sentinel
 
 Démarche d'investigation face à un scénario de connexions suspectes : collecte de logs, requêtes KQL, triage, qualification et recommandations.
 
@@ -56,7 +62,7 @@ Démarche d'investigation face à un scénario de connexions suspectes : collect
 
 **Compétences :** Microsoft Sentinel, KQL, Windows Event Logs, triage, chronologie d'incident.
 
-### 6. Méthodologie d'audit de sécurité Microsoft Entra ID
+### 7. Méthodologie d'audit de sécurité Microsoft Entra ID
 
 Démarche d'audit d'un tenant : comptes à privilèges, MFA, accès conditionnels, comptes inactifs et principe du moindre privilège.
 
@@ -64,7 +70,7 @@ Démarche d'audit d'un tenant : comptes à privilèges, MFA, accès conditionnel
 
 **Compétences :** IAM, Entra ID, MFA, Conditional Access, RBAC, PowerShell / Microsoft Graph.
 
-### 7. Méthodologie de gestion des vulnérabilités
+### 8. Méthodologie de gestion des vulnérabilités
 
 Démarche de scan, qualification, priorisation et remédiation sur un système type.
 
@@ -74,13 +80,13 @@ Démarche de scan, qualification, priorisation et remédiation sur un système t
 
 ## Compétences techniques
 
-- **Sécurité :** analyse d'événements, investigation, IAM, durcissement, gestion des vulnérabilités, segmentation réseau, confidentialité des données
+- **Sécurité :** analyse d'événements, investigation, IAM, durcissement, gestion des vulnérabilités, segmentation réseau, confidentialité des données, vérification d'intégrité documentaire
 - **Réseau :** TCP/IP, DNS, DHCP, VLAN, routage, pare-feu, SSH, équipements HPE Aruba
 - **Supervision :** Zabbix, Grafana, SNMP, alerting, qualification d'incidents
 - **Automatisation / scripting :** Python, PowerShell, Ansible, gestion de secrets avec Ansible Vault
 - **Microsoft :** Microsoft 365, Exchange Online, Entra ID, SharePoint, Power Automate, Microsoft Graph
 - **Systèmes :** Windows, Active Directory, Linux, postes de travail, support N2
-- **Développement d'outils :** Python, Tkinter, traitement de fichiers, outils locaux orientés confidentialité
+- **Développement d'outils :** Python, Tkinter, PySide6, PyMuPDF, traitement de fichiers, outils locaux orientés confidentialité
 - **Documentation :** procédures, rapports techniques, recommandations, documentation d'infrastructure
 
 ## Formation
