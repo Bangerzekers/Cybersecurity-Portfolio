@@ -1,0 +1,23 @@
+<!--
+  Règle de détection custom — Wazuh Mini-SOC
+  Fichier : /var/ossec/etc/rules/local_rules.xml (sur le manager)
+
+  Objectif : détecter l'exécution d'un script PowerShell dont le contenu
+  (capturé via Script Block Logging, Event ID 4104) contient le mot-clé
+  de test MINISOC_TEST, et le mapper à la technique MITRE ATT&CK
+  T1059.001 (Command and Scripting Interpreter: PowerShell).
+-->
+<group name="windows,powershell,mini_soc,">
+
+  <rule id="100100" level="8">
+    <if_sid>91802</if_sid>
+    <field name="win.system.eventID">^4104$</field>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">(?i)MINISOC_TEST</field>
+    <description>Mini-SOC: PowerShell ScriptBlock test detected</description>
+
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+  </rule>
+
+</group>

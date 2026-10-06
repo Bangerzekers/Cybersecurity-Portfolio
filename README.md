@@ -50,11 +50,19 @@ Application de bureau complète regroupant une quinzaine d'opérations PDF (édi
 
 **Compétences démontrées :** Python, PySide6, PyMuPDF, conception d'interface graphique interactive, manipulation bas niveau du format PDF (caviardage, redaction, formulaires), vérification d'intégrité documentaire, OCR, confidentialité par conception.
 
+### 6. Wazuh Mini-SOC — lab de détection PowerShell
+
+Déploiement personnel d'un SIEM Wazuh (manager Debian + 2 agents Windows 11) avec activation du PowerShell Script Block Logging, écriture d'une règle de détection custom mappée MITRE ATT&CK (T1059.001) et validation end-to-end de la détection, du déclenchement à l'alerte dans le dashboard.
+
+[Consulter le projet](./wazuh-mini-soc/)
+
+**Compétences démontrées :** déploiement Wazuh (manager + agents), Windows Event Logging, écriture de règles de détection XML, mapping MITRE ATT&CK, validation de détection.
+
 ## Notes de méthodologie
 
 Ces documents ne décrivent pas un incident réel, mais ma démarche technique face à un scénario donné : requêtes, outils, raisonnement et priorisation. L'objectif est de montrer comment je pense et travaille, en toute transparence sur le fait qu'il s'agit d'exercices méthodologiques.
 
-### 6. Méthodologie d'investigation SOC avec Microsoft Sentinel
+### 7. Méthodologie d'investigation SOC avec Microsoft Sentinel
 
 Démarche d'investigation face à un scénario de connexions suspectes : collecte de logs, requêtes KQL, triage, qualification et recommandations.
 
@@ -62,7 +70,7 @@ Démarche d'investigation face à un scénario de connexions suspectes : collect
 
 **Compétences :** Microsoft Sentinel, KQL, Windows Event Logs, triage, chronologie d'incident.
 
-### 7. Méthodologie d'audit de sécurité Microsoft Entra ID
+### 8. Méthodologie d'audit de sécurité Microsoft Entra ID
 
 Démarche d'audit d'un tenant : comptes à privilèges, MFA, accès conditionnels, comptes inactifs et principe du moindre privilège.
 
@@ -70,7 +78,7 @@ Démarche d'audit d'un tenant : comptes à privilèges, MFA, accès conditionnel
 
 **Compétences :** IAM, Entra ID, MFA, Conditional Access, RBAC, PowerShell / Microsoft Graph.
 
-### 8. Méthodologie de gestion des vulnérabilités
+### 9. Méthodologie de gestion des vulnérabilités
 
 Démarche de scan, qualification, priorisation et remédiation sur un système type.
 
@@ -80,7 +88,7 @@ Démarche de scan, qualification, priorisation et remédiation sur un système t
 
 ## Compétences techniques
 
-- **Sécurité :** analyse d'événements, investigation, IAM, durcissement, gestion des vulnérabilités, segmentation réseau, confidentialité des données, vérification d'intégrité documentaire
+- **Sécurité :** analyse d'événements, investigation, IAM, durcissement, gestion des vulnérabilités, segmentation réseau, confidentialité des données, vérification d'intégrité documentaire, détection (SIEM, règles custom, MITRE ATT&CK)
 - **Réseau :** TCP/IP, DNS, DHCP, VLAN, routage, pare-feu, SSH, équipements HPE Aruba
 - **Supervision :** Zabbix, Grafana, SNMP, alerting, qualification d'incidents
 - **Automatisation / scripting :** Python, PowerShell, Ansible, gestion de secrets avec Ansible Vault
